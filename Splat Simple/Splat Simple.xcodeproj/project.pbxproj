@@ -13,7 +13,7 @@
 		CED213131B36C54E00B282C8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CED213121B36C54E00B282C8 /* Images.xcassets */; };
 		CED213161B36C54E00B282C8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CED213141B36C54E00B282C8 /* LaunchScreen.xib */; };
 		CED213221B36C54E00B282C8 /* Splat_SimpleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED213211B36C54E00B282C8 /* Splat_SimpleTests.swift */; };
-		CED2132C1B36C5D200B282C8 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED2132B1B36C5D200B282C8 /* Home.swift */; };
+		CEE8DF061B3970E900FA3D71 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE8DF051B3970E900FA3D71 /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +37,7 @@
 		CED2131B1B36C54E00B282C8 /* Splat SimpleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Splat SimpleTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CED213201B36C54E00B282C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CED213211B36C54E00B282C8 /* Splat_SimpleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Splat_SimpleTests.swift; sourceTree = "<group>"; };
-		CED2132B1B36C5D200B282C8 /* Home.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		CEE8DF051B3970E900FA3D71 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,8 +81,8 @@
 			children = (
 				CED2130B1B36C54E00B282C8 /* AppDelegate.swift */,
 				CED2130D1B36C54E00B282C8 /* ViewController.swift */,
+				CEE8DF051B3970E900FA3D71 /* HomeViewController.swift */,
 				CED2130F1B36C54E00B282C8 /* Main.storyboard */,
-				CED2132B1B36C5D200B282C8 /* Home.swift */,
 				CED213121B36C54E00B282C8 /* Images.xcassets */,
 				CED213141B36C54E00B282C8 /* LaunchScreen.xib */,
 				CED213091B36C54E00B282C8 /* Supporting Files */,
@@ -216,8 +216,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				CED2130E1B36C54E00B282C8 /* ViewController.swift in Sources */,
-				CED2132C1B36C5D200B282C8 /* Home.swift in Sources */,
 				CED2130C1B36C54E00B282C8 /* AppDelegate.swift in Sources */,
+				CEE8DF061B3970E900FA3D71 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,6 +413,7 @@
 				CED213271B36C54E00B282C8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CED213281B36C54E00B282C8 /* Build configuration list for PBXNativeTarget "Splat SimpleTests" */ = {
 			isa = XCConfigurationList;
@@ -421,6 +422,7 @@
 				CED2132A1B36C54E00B282C8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

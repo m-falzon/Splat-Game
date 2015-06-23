@@ -71,7 +71,7 @@ class ViewController: UIViewController {
     func setupGame () {
         
         // Timer
-        var timer = NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: Selector("update"), userInfo: nil, repeats: false)
+        var timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("update"), userInfo: nil, repeats: false)
         
         // MARK: Swipe Gestures
         
@@ -96,12 +96,17 @@ class ViewController: UIViewController {
             println("Correct")
         } else {
             println("Game Over")
-            let alert = UIAlertController(title: "Time is up!",
+            let alert = UIAlertController(title: "Game Over",
                 message: "You scored \(score) points",
                 preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "Play Again", style: UIAlertActionStyle.Default, handler: {
                 action in self.restartedGame()
             }))
+            
+            alert.addAction(UIAlertAction(title: "Home", style: UIAlertActionStyle.Default, handler: {
+                action in self.setupGame()
+            }))
+            
             presentViewController(alert, animated: true, completion:nil)
         }
     }
@@ -113,7 +118,7 @@ class ViewController: UIViewController {
             println("Correct")
         } else {
             println("Game Over")
-            let alert = UIAlertController(title: "Time is up!",
+            let alert = UIAlertController(title: "Game Over",
                 message: "You scored \(score) points",
                 preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "Play Again", style: UIAlertActionStyle.Default, handler: {
