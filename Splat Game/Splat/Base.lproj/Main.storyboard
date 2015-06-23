@@ -30,15 +30,15 @@
                                 <rect key="frame" x="0.0" y="502" width="320" height="66"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ball" translatesAutoresizingMaskIntoConstraints="NO" id="cQm-Wv-3NK">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ball" translatesAutoresizingMaskIntoConstraints="NO" id="3Mv-Ml-FVP">
+                                <rect key="frame" x="110" y="214" width="100" height="100"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ball" translatesAutoresizingMaskIntoConstraints="NO" id="Eba-w2-dXY">
+                                <rect key="frame" x="110" y="224" width="100" height="100"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ball" translatesAutoresizingMaskIntoConstraints="NO" id="BFe-H6-aeS">
                                 <rect key="frame" x="110" y="234" width="100" height="100"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bFy-tx-qNR">
-                                <rect key="frame" x="16" y="141" width="288" height="103"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="41"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -55,8 +55,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="ball" destination="cQm-Wv-3NK" id="uGP-2i-nfb"/>
-                        <outlet property="number" destination="bFy-tx-qNR" id="Dxx-GY-3P8"/>
+                        <outlet property="ballSpotOne" destination="BFe-H6-aeS" id="2gD-Gg-tOu"/>
+                        <outlet property="ballSpotThree" destination="3Mv-Ml-FVP" id="5WP-kU-9Vl"/>
+                        <outlet property="ballSpotTwo" destination="Eba-w2-dXY" id="taE-ZB-OHV"/>
                         <outlet property="result" destination="D0F-oS-Olq" id="Txx-cw-KUn"/>
                     </connections>
                 </viewController>

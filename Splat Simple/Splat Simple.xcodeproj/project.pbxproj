@@ -1,0 +1,428 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CED2130C1B36C54E00B282C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED2130B1B36C54E00B282C8 /* AppDelegate.swift */; };
+		CED2130E1B36C54E00B282C8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED2130D1B36C54E00B282C8 /* ViewController.swift */; };
+		CED213111B36C54E00B282C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CED2130F1B36C54E00B282C8 /* Main.storyboard */; };
+		CED213131B36C54E00B282C8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CED213121B36C54E00B282C8 /* Images.xcassets */; };
+		CED213161B36C54E00B282C8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CED213141B36C54E00B282C8 /* LaunchScreen.xib */; };
+		CED213221B36C54E00B282C8 /* Splat_SimpleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED213211B36C54E00B282C8 /* Splat_SimpleTests.swift */; };
+		CED2132C1B36C5D200B282C8 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED2132B1B36C5D200B282C8 /* Home.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CED2131C1B36C54E00B282C8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CED212FE1B36C54E00B282C8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CED213051B36C54E00B282C8;
+			remoteInfo = "Splat Simple";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CED213061B36C54E00B282C8 /* Splat Simple.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Splat Simple.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CED2130A1B36C54E00B282C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CED2130B1B36C54E00B282C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CED2130D1B36C54E00B282C8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CED213101B36C54E00B282C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CED213121B36C54E00B282C8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		CED213151B36C54E00B282C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		CED2131B1B36C54E00B282C8 /* Splat SimpleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Splat SimpleTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CED213201B36C54E00B282C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CED213211B36C54E00B282C8 /* Splat_SimpleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Splat_SimpleTests.swift; sourceTree = "<group>"; };
+		CED2132B1B36C5D200B282C8 /* Home.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CED213031B36C54E00B282C8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CED213181B36C54E00B282C8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CED212FD1B36C54E00B282C8 = {
+			isa = PBXGroup;
+			children = (
+				CED213081B36C54E00B282C8 /* Splat Simple */,
+				CED2131E1B36C54E00B282C8 /* Splat SimpleTests */,
+				CED213071B36C54E00B282C8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CED213071B36C54E00B282C8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CED213061B36C54E00B282C8 /* Splat Simple.app */,
+				CED2131B1B36C54E00B282C8 /* Splat SimpleTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CED213081B36C54E00B282C8 /* Splat Simple */ = {
+			isa = PBXGroup;
+			children = (
+				CED2130B1B36C54E00B282C8 /* AppDelegate.swift */,
+				CED2130D1B36C54E00B282C8 /* ViewController.swift */,
+				CED2130F1B36C54E00B282C8 /* Main.storyboard */,
+				CED2132B1B36C5D200B282C8 /* Home.swift */,
+				CED213121B36C54E00B282C8 /* Images.xcassets */,
+				CED213141B36C54E00B282C8 /* LaunchScreen.xib */,
+				CED213091B36C54E00B282C8 /* Supporting Files */,
+			);
+			path = "Splat Simple";
+			sourceTree = "<group>";
+		};
+		CED213091B36C54E00B282C8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CED2130A1B36C54E00B282C8 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CED2131E1B36C54E00B282C8 /* Splat SimpleTests */ = {
+			isa = PBXGroup;
+			children = (
+				CED213211B36C54E00B282C8 /* Splat_SimpleTests.swift */,
+				CED2131F1B36C54E00B282C8 /* Supporting Files */,
+			);
+			path = "Splat SimpleTests";
+			sourceTree = "<group>";
+		};
+		CED2131F1B36C54E00B282C8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CED213201B36C54E00B282C8 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CED213051B36C54E00B282C8 /* Splat Simple */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CED213251B36C54E00B282C8 /* Build configuration list for PBXNativeTarget "Splat Simple" */;
+			buildPhases = (
+				CED213021B36C54E00B282C8 /* Sources */,
+				CED213031B36C54E00B282C8 /* Frameworks */,
+				CED213041B36C54E00B282C8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Splat Simple";
+			productName = "Splat Simple";
+			productReference = CED213061B36C54E00B282C8 /* Splat Simple.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CED2131A1B36C54E00B282C8 /* Splat SimpleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CED213281B36C54E00B282C8 /* Build configuration list for PBXNativeTarget "Splat SimpleTests" */;
+			buildPhases = (
+				CED213171B36C54E00B282C8 /* Sources */,
+				CED213181B36C54E00B282C8 /* Frameworks */,
+				CED213191B36C54E00B282C8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CED2131D1B36C54E00B282C8 /* PBXTargetDependency */,
+			);
+			name = "Splat SimpleTests";
+			productName = "Splat SimpleTests";
+			productReference = CED2131B1B36C54E00B282C8 /* Splat SimpleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CED212FE1B36C54E00B282C8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = "Matthew Falzon";
+				TargetAttributes = {
+					CED213051B36C54E00B282C8 = {
+						CreatedOnToolsVersion = 6.3.1;
+					};
+					CED2131A1B36C54E00B282C8 = {
+						CreatedOnToolsVersion = 6.3.1;
+						TestTargetID = CED213051B36C54E00B282C8;
+					};
+				};
+			};
+			buildConfigurationList = CED213011B36C54E00B282C8 /* Build configuration list for PBXProject "Splat Simple" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CED212FD1B36C54E00B282C8;
+			productRefGroup = CED213071B36C54E00B282C8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CED213051B36C54E00B282C8 /* Splat Simple */,
+				CED2131A1B36C54E00B282C8 /* Splat SimpleTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CED213041B36C54E00B282C8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CED213111B36C54E00B282C8 /* Main.storyboard in Resources */,
+				CED213161B36C54E00B282C8 /* LaunchScreen.xib in Resources */,
+				CED213131B36C54E00B282C8 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CED213191B36C54E00B282C8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CED213021B36C54E00B282C8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CED2130E1B36C54E00B282C8 /* ViewController.swift in Sources */,
+				CED2132C1B36C5D200B282C8 /* Home.swift in Sources */,
+				CED2130C1B36C54E00B282C8 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CED213171B36C54E00B282C8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CED213221B36C54E00B282C8 /* Splat_SimpleTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CED2131D1B36C54E00B282C8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CED213051B36C54E00B282C8 /* Splat Simple */;
+			targetProxy = CED2131C1B36C54E00B282C8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CED2130F1B36C54E00B282C8 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CED213101B36C54E00B282C8 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		CED213141B36C54E00B282C8 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CED213151B36C54E00B282C8 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CED213231B36C54E00B282C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		CED213241B36C54E00B282C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CED213261B36C54E00B282C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Splat Simple/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		CED213271B36C54E00B282C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Splat Simple/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		CED213291B36C54E00B282C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Splat SimpleTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Splat Simple.app/Splat Simple";
+			};
+			name = Debug;
+		};
+		CED2132A1B36C54E00B282C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Splat SimpleTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Splat Simple.app/Splat Simple";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CED213011B36C54E00B282C8 /* Build configuration list for PBXProject "Splat Simple" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CED213231B36C54E00B282C8 /* Debug */,
+				CED213241B36C54E00B282C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CED213251B36C54E00B282C8 /* Build configuration list for PBXNativeTarget "Splat Simple" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CED213261B36C54E00B282C8 /* Debug */,
+				CED213271B36C54E00B282C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		CED213281B36C54E00B282C8 /* Build configuration list for PBXNativeTarget "Splat SimpleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CED213291B36C54E00B282C8 /* Debug */,
+				CED2132A1B36C54E00B282C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CED212FE1B36C54E00B282C8 /* Project object */;
+}

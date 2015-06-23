@@ -11,25 +11,45 @@ import SpriteKit
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var ball: UIImageView!
+    @IBOutlet weak var ballSpotOne: UIImageView!
+    @IBOutlet weak var ballSpotTwo: UIImageView!
+    @IBOutlet weak var ballSpotThree: UIImageView!
+
+    @IBOutlet weak var redBall: UIImageView!
+    @IBOutlet weak var blueBall: UIImageView!
     
     @IBOutlet weak var number: UILabel!
     @IBOutlet weak var result: UILabel!
     
+    func createBall() {
+        
+        let colouredBalls = [
+            UIColor(red: 90/255.0, green: 187/255.0, blue: 181/255.0, alpha: 1.0), // Red
+            UIColor(red: 222/255.0, green: 171/255.0, blue: 66/255.0, alpha: 1.0) // Blue
+        ]
+        
+        let randomBallColour = Int(arc4random_uniform(UInt32(colouredBalls.count)))
+        
+        ballSpotOne.tintColor = UIColor(red: 90/255.0, green: 187/255.0, blue: 181/255.0, alpha: 1.0)
+        
+    }
     
     func randomizeColor() {
         
-        var red = UIColor(red: (221/255.0), green: (0/255.0), blue: (37/255.0), alpha: 1.0)
-        var blue = UIColor(red: (160/255.0), green: (97/255.0), blue: (5/255.0), alpha: 1.0)
-        
-        var colours = [red, blue]
-        
-        ball.tintColor = blue
+        let colours = [redBall, blueBall]
+        let randomIndex = Int(arc4random_uniform(UInt32(colours.count)))
+        (colours[randomIndex]).hidden = false
         
     }
-
-    func randomNumberFunc() -> Int {
-        return Int(arc4random_uniform(2)+1)
+    
+    func onlyShowOne() {
+        
+        if blueBall.hidden {
+            redBall.hidden = false
+        } else if redBall.hidden {
+            blueBall.hidden = false
+        }
+        
     }
 
     override func viewDidLoad() {
@@ -39,23 +59,10 @@ class ViewController: UIViewController {
         
         // Timer
         
-        var timer = NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: Selector("update"), userInfo: nil, repeats: true)
-        
-        number.text = "\(randomNumberFunc())"
-
-        
+        var timer = NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: Selector("update"), userInfo: nil, repeats: true)
         
         // MARK: Swipe Gestures
         
-//        //------------right  swipe gestures in view--------------//
-//        let swipeRight = UISwipeGestureRecognizer(target: self, action: Selector("rightSwiped"))
-//        swipeRight.direction = UISwipeGestureRecognizerDirection.Right
-//        self.view.addGestureRecognizer(swipeRight)
-//        
-//        //-----------left swipe gestures in view--------------//
-//        let swipeLeft = UISwipeGestureRecognizer(target: self, action: Selector("leftSwiped"))
-//        swipeLeft.direction = UISwipeGestureRecognizerDirection.Left
-//        self.view.addGestureRecognizer(swipeLeft)
         
         //-----------down swipe gestures in view--------------//
         let swipeDown = UISwipeGestureRecognizer(target: self, action: Selector("downSwiped"))
@@ -73,42 +80,26 @@ class ViewController: UIViewController {
         // Update Function
     
         func update() {
-            randomNumberFunc()
+            createBall()
         }
     
-    
-        // Swipe Functions
-    
-//        func rightSwiped() {
-//            println("right swiped")
-//        }
-//    
-//        func leftSwiped() {
-//            println("left swiped")
-//        }
-    
         func downSwiped() {
-            if randomNumberFunc() == 2 {
-                result.text = "True"
+            if redBall.hidden {
+                result.text = "Correct"
                 println("swipe down")
             } else {
-                result.text = "False"
+                result.text = "Wrong"
             }
         }
     
         func upSwiped() {
-            if randomNumberFunc() == 1 {
-                result.text = "True"
+            if blueBall.hidden {
+                result.text = "Correct"
                 println("swipe up")
             } else {
-                result.text = "False"
+                result.text = "Wrong"
             }
         }
-    
-    
-    
-    
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
