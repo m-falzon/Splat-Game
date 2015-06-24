@@ -20,6 +20,10 @@ class ViewController: UIViewController {
         }
     }
     
+    override func prefersStatusBarHidden() -> Bool {
+        return true
+    }
+    
     func createBall() {
         
         let colouredBalls = [blueBall, redBall]
@@ -104,7 +108,7 @@ class ViewController: UIViewController {
             }))
             
             alert.addAction(UIAlertAction(title: "Home", style: UIAlertActionStyle.Default, handler: {
-                action in self.setupGame()
+                action in self.performSegueWithIdentifier("backToHome", sender: self)
             }))
             
             presentViewController(alert, animated: true, completion:nil)
@@ -124,6 +128,11 @@ class ViewController: UIViewController {
             alert.addAction(UIAlertAction(title: "Play Again", style: UIAlertActionStyle.Default, handler: {
                 action in self.restartedGame()
             }))
+            
+            alert.addAction(UIAlertAction(title: "Home", style: UIAlertActionStyle.Default, handler: {
+                action in self.performSegueWithIdentifier("backToHome", sender: self)
+            }))
+            
             presentViewController(alert, animated: true, completion:nil)
         }
     }

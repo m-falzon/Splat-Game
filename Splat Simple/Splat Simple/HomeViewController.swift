@@ -12,6 +12,10 @@ class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
 
     @IBOutlet weak var startButton: UIImageView!
     
+    override func prefersStatusBarHidden() -> Bool {
+        return true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

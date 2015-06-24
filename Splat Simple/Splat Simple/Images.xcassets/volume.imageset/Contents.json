@@ -3,17 +3,15 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "redball.png"
+      "filename" : "volume.png"
     },
     {
       "idiom" : "universal",
-      "scale" : "2x",
-      "filename" : "redball@x2.png"
+      "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "scale" : "3x",
-      "filename" : "redball@x3.png"
+      "scale" : "3x"
     }
   ],
   "info" : {
