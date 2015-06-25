@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE8591E31B3C06500041D437 /* ballImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8591E21B3C06500041D437 /* ballImageView.swift */; };
 		CED2130C1B36C54E00B282C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED2130B1B36C54E00B282C8 /* AppDelegate.swift */; };
 		CED2130E1B36C54E00B282C8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED2130D1B36C54E00B282C8 /* ViewController.swift */; };
 		CED213111B36C54E00B282C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CED2130F1B36C54E00B282C8 /* Main.storyboard */; };
@@ -27,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CE8591E21B3C06500041D437 /* ballImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ballImageView.swift; sourceTree = "<group>"; };
 		CED213061B36C54E00B282C8 /* Splat Simple.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Splat Simple.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CED2130A1B36C54E00B282C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CED2130B1B36C54E00B282C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 			children = (
 				CED2130B1B36C54E00B282C8 /* AppDelegate.swift */,
 				CED2130D1B36C54E00B282C8 /* ViewController.swift */,
+				CE8591E21B3C06500041D437 /* ballImageView.swift */,
 				CEE8DF051B3970E900FA3D71 /* HomeViewController.swift */,
 				CED2130F1B36C54E00B282C8 /* Main.storyboard */,
 				CED213121B36C54E00B282C8 /* Images.xcassets */,
@@ -218,6 +221,7 @@
 				CED2130E1B36C54E00B282C8 /* ViewController.swift in Sources */,
 				CED2130C1B36C54E00B282C8 /* AppDelegate.swift in Sources */,
 				CEE8DF061B3970E900FA3D71 /* HomeViewController.swift in Sources */,
+				CE8591E31B3C06500041D437 /* ballImageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

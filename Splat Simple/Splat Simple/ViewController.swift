@@ -6,13 +6,24 @@
 //  Copyright (c) 2015 Matthew Falzon. All rights reserved.
 //
 
+// LayerOne not swiped, ball will spawn on LayerTwo
+// LayerTwo not swiped, ball will spawn on LayerOne
+
+// LayerOne swiped, ball will spawn on LayerOne
+
+
 import UIKit
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var redBall: UIImageView!
-    @IBOutlet weak var blueBall: UIImageView!
+    @IBOutlet weak var layerOne: ballImageView!
+    @IBOutlet weak var layerTwo: ballImageView!
     @IBOutlet weak var scoreCounter: UILabel!
+    
+    var blueImage = UIImage(named:"blue")
+    var redImage = UIImage(named:"red")
+    
+    var timeOfSpawn: NSDate = NSDate()
     
     var score = 0 {
         didSet {
@@ -20,62 +31,73 @@ class ViewController: UIViewController {
         }
     }
     
+    let blue = 0
+    let red = 1
+    
     override func prefersStatusBarHidden() -> Bool {
         return true
     }
     
-    func createBall() {
+    // Return next ball
+    func nextLayer() -> ballImageView {
+        return layerTwo
+    }
+    
+    // Return in front
+    func currentLayer() -> ballImageView {
+        return layerTwo
+    }
+    
+    func createBall(anyLayer:ballImageView) {
         
-        let colouredBalls = [blueBall, redBall]
-        let randomBallColour = Int(arc4random_uniform(UInt32(colouredBalls.count)))
+        let colouredBalls = [blueImage, redImage]
+        let randomImage = Int(arc4random_uniform(UInt32(colouredBalls.count)))
         
-        (colouredBalls[randomBallColour]).hidden = false
+        anyLayer.colour = randomImage
+        anyLayer.image = colouredBalls[randomImage]
+        anyLayer.alpha = 0
+        anyLayer.hidden = false
+        
+        timeOfSpawn = NSDate()
+        
+        UIView.animateWithDuration(1, animations: {
+            anyLayer.alpha = 1.0
+        })
         
     }
     
-    func createNextBall() {
+    func createNextBall(swipedLayer:ballImageView) {
         
-        self.blueBall.alpha = 0
-        self.redBall.alpha = 0
-        
-        self.view.addSubview(blueBall)
-        self.view.addSubview(redBall)
-        
-        UIView.animateWithDuration(1, animations: {
-            self.blueBall.alpha = 1.0
-            self.redBall.alpha = 1.0
-        })
-        
-        blueBall.hidden = true
-        redBall.hidden = true
-        let colouredBalls = [blueBall, redBall]
-        let randomBallColour = Int(arc4random_uniform(UInt32(colouredBalls.count)))
-        
-        (colouredBalls[randomBallColour]).hidden = false
+        swipedLayer.alpha = 0
+        self.view.addSubview(swipedLayer)
+        swipedLayer.hidden = true
         
     }
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+        var layers = [layerOne, layerTwo]
         setupGame()
         
     }
     
     // Update Function
     func update() {
-        createBall()
-        println("Spawned")
-    }
+        
+        var difference = timeOfSpawn.timeIntervalSinceNow;
+        if (difference < -2) {
+            createBall(nextLayer())
+//            println("2 Seconds has passed");
+        }
     
-    func updateScore() {
-        scoreCounter.text = "\(score)"
     }
     
     func setupGame () {
         
         // Timer
-        var timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("update"), userInfo: nil, repeats: false)
+        var timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("update"), userInfo: nil, repeats: true)
         
         // MARK: Swipe Gestures
         
@@ -92,12 +114,18 @@ class ViewController: UIViewController {
         
     }
     
+    // Update Score
+    func updateScore() {
+        scoreCounter.text = "\(score)"
+    }
+    
     // Swipe Functions
     func upSwiped() {
-        if blueBall.hidden {
+        var curLayer = currentLayer()
+        if curLayer.colour == red {
             score++
-            createNextBall()
-            println("Correct")
+            createNextBall(curLayer)
+            println("Correct Red")
         } else {
             println("Game Over")
             let alert = UIAlertController(title: "Game Over",
@@ -116,10 +144,11 @@ class ViewController: UIViewController {
     }
     
     func downSwiped() {
-        if redBall.hidden {
+        var curLayer = currentLayer()
+        if curLayer.colour == blue {
             score++
-            createNextBall()
-            println("Correct")
+            createNextBall(curLayer)
+            println("Correct Blue")
         } else {
             println("Game Over")
             let alert = UIAlertController(title: "Game Over",

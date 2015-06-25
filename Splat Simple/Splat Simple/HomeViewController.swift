@@ -26,7 +26,6 @@ class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
     }
 
     func tappedTapped(sender: AnyObject) {
-        println("tapped")
         self.performSegueWithIdentifier("segueToGame", sender: self)
     }
 
