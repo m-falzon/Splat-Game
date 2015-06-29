@@ -7,7 +7,7 @@
 //
 
 // LayerOne not swiped, ball will spawn on LayerTwo
-// LayerTwo not swiped, ball will spawn on LayerOne
+// Top layer swiped, LayerTwo will become layerOne
 
 // LayerOne swiped, ball will spawn on LayerOne
 

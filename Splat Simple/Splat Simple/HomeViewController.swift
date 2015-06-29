@@ -11,6 +11,7 @@ import UIKit
 class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
 
     @IBOutlet weak var startButton: UIImageView!
+    @IBOutlet weak var howToButton: UIImageView!
     
     override func prefersStatusBarHidden() -> Bool {
         return true
@@ -19,14 +20,24 @@ class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var UITapRecognizer = UITapGestureRecognizer(target: self, action: "tappedTapped:")
-        UITapRecognizer.delegate = self
-        self.startButton.addGestureRecognizer(UITapRecognizer)
+        var UIPlayTapRecognizer = UITapGestureRecognizer(target: self, action: "playTapped:")
+        UIPlayTapRecognizer.delegate = self
+        self.startButton.addGestureRecognizer(UIPlayTapRecognizer)
         self.startButton.userInteractionEnabled = true
+        
+        var UIHowToTapRecognizer = UITapGestureRecognizer(target: self, action: "howToTapped:")
+        UIHowToTapRecognizer.delegate = self
+        self.howToButton.addGestureRecognizer(UIHowToTapRecognizer)
+        self.howToButton.userInteractionEnabled = true
+        
     }
 
-    func tappedTapped(sender: AnyObject) {
+    func playTapped(sender: AnyObject) {
         self.performSegueWithIdentifier("segueToGame", sender: self)
+    }
+
+    func howToTapped(sender: AnyObject) {
+        self.performSegueWithIdentifier("segueToHowTo", sender: self)
     }
 
     override func didReceiveMemoryWarning() {
