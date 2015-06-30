@@ -74,7 +74,6 @@
         <!--Title-->
         <scene sceneID="3Ex-DT-HbO">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2ex-ob-SZn" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="3sG-Ei-Q6P" customClass="HowToViewController" customModule="Splat_Simple" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6uc-e0-GbQ"/>
@@ -150,6 +149,7 @@
                     <navigationItem key="navigationItem" title="Title" id="WNW-Qh-B5x"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2ex-ob-SZn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="119.5" y="940.5"/>
         </scene>
@@ -165,15 +165,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="c19-a1-KQn" customClass="ballImageView" customModule="Splat_Simple" customModuleProvider="target">
-                                <rect key="frame" x="137" y="302" width="100" height="100"/>
-                                <gestureRecognizers/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="Q8k-RY-PZQ"/>
-                                    <constraint firstAttribute="width" constant="100" id="f5h-Br-3kA"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jJ0-tv-27t">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jJ0-tv-27t">
                                 <rect key="frame" x="16" y="588" width="343" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Buu-00-FdR"/>
@@ -206,32 +198,15 @@
                                 <rect key="frame" x="0.0" y="334" width="5" height="328"/>
                                 <color key="backgroundColor" red="0.047058823530000002" green="0.57647058819999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mEK-Ki-Kq5" customClass="ballImageView" customModule="Splat_Simple" customModuleProvider="target">
-                                <rect key="frame" x="137" y="277" width="100" height="100"/>
-                                <gestureRecognizers/>
-                                <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="6uD-Ly-cPI"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="DVp-BK-5Em"/>
-                                    <constraint firstAttribute="width" constant="100" id="LDp-o7-YdH"/>
-                                    <constraint firstAttribute="height" constant="100" id="m8N-dJ-0FR"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="jJ0-tv-27t" firstAttribute="top" secondItem="c19-a1-KQn" secondAttribute="bottom" constant="186" id="95f-kL-9rJ"/>
-                            <constraint firstAttribute="centerX" secondItem="mEK-Ki-Kq5" secondAttribute="centerX" id="DFg-Sm-Y7A"/>
-                            <constraint firstAttribute="centerY" secondItem="c19-a1-KQn" secondAttribute="centerY" constant="-18.5" id="HXF-L6-Fj1"/>
-                            <constraint firstAttribute="centerX" secondItem="c19-a1-KQn" secondAttribute="centerX" id="KJK-Nl-iev"/>
                             <constraint firstItem="jJ0-tv-27t" firstAttribute="leading" secondItem="lhL-ZH-mQ6" secondAttribute="leadingMargin" id="M1M-pu-VCq"/>
-                            <constraint firstAttribute="centerY" secondItem="mEK-Ki-Kq5" secondAttribute="centerY" constant="6.5" id="Rum-GN-bQk"/>
                             <constraint firstAttribute="centerX" secondItem="jJ0-tv-27t" secondAttribute="centerX" id="ZNS-Ud-FPe"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="layerOne" destination="c19-a1-KQn" id="TMH-F7-C7y"/>
-                        <outlet property="layerTwo" destination="mEK-Ki-Kq5" id="Pvq-We-aNc"/>
                         <outlet property="scoreCounter" destination="jJ0-tv-27t" id="DWD-Ih-Mp0"/>
                         <segue destination="vXZ-lx-hvc" kind="presentation" identifier="backToHome" modalTransitionStyle="crossDissolve" id="PSa-Xq-SDa"/>
                     </connections>

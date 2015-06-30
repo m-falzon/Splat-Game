@@ -8,10 +8,10 @@
 
 import UIKit
 
-class ballImageView: UIImageView {
+class BallImageView: UIImageView {
     
-    var timer:NSDate?
+//    var timer:NSDate?
     var colour:Int = 0
-    var infront = true
+//    var infront = true
     
 }

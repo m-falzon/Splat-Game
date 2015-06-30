@@ -14,16 +14,28 @@
 
 import UIKit
 
+let BALL_INTERVAL:NSTimeInterval = 2
+
+let MAX_BALLS = 3
+
+let BALL_VERTICAL_POSITION_OFFSET:CGFloat = -15
+
+let BALL_TIME_REDUCE_RATIO = 0.1
+
 class ViewController: UIViewController {
     
-    @IBOutlet weak var layerOne: ballImageView!
-    @IBOutlet weak var layerTwo: ballImageView!
     @IBOutlet weak var scoreCounter: UILabel!
     
-    var blueImage = UIImage(named:"blue")
-    var redImage = UIImage(named:"red")
+    let topColourBallImage:UIImage = UIImage(named:"red")!
+    let bottomColourBallImage:UIImage = UIImage(named:"blue")!
     
-    var timeOfSpawn: NSDate = NSDate()
+    var isGameOver = true
+    
+    var colouredBallImages:[UIImage] = []
+    
+    var balls:[UIImageView] = []
+    
+    var currentLayerIndex = 0
     
     var score = 0 {
         didSet {
@@ -31,73 +43,97 @@ class ViewController: UIViewController {
         }
     }
     
-    let blue = 0
-    let red = 1
+    var screenDimensions:(width:CGFloat, height:CGFloat) {
+        get {
+            let screenRect = UIScreen.mainScreen().bounds
+            return (width:screenRect.size.width, height:screenRect.size.height)
+        }
+    }
     
     override func prefersStatusBarHidden() -> Bool {
         return true
     }
     
-    // Return next ball
-    func nextLayer() -> ballImageView {
-        return layerTwo
+    func currentBall() -> UIImageView {
+        return balls.first!
     }
     
-    // Return in front
-    func currentLayer() -> ballImageView {
-        return layerTwo
+    // 1. Check if we can keep playing
+    // 2. Get a new ball instance based on available colours
+    // 3. Add to list of balls currently in play
+    // 4. Set timer for when new ball should be created
+    func createBall() {
+        
+        // If we've reached the max amount of balls, it's game over
+        if isMaxBalls() {
+            return gameOver()
+        }
+        
+        let randomImage:UIImage = colouredBallImages[Int(arc4random_uniform(UInt32(colouredBallImages.count)))]
+        
+        let newBall:UIImageView = UIImageView(image: randomImage)
+        newBall.layer.borderColor = UIColor.whiteColor().CGColor
+        newBall.layer.cornerRadius = 50
+        newBall.layer.masksToBounds = true
+        newBall.layer.borderWidth = 1
+        
+        // Calcuate vertical ball offset
+        let verticalOffset = CGFloat(balls.count) * BALL_VERTICAL_POSITION_OFFSET
+        
+        // Calculate ball position
+        let ballPositionX = (screenDimensions.width/2)-(randomImage.size.width/2)
+        let ballPositionY = (screenDimensions.height/2)-(randomImage.size.height/2) + verticalOffset
+        
+        // Position new ball
+        newBall.frame = CGRect(x: ballPositionX, y: ballPositionY, width: randomImage.size.width, height:randomImage.size.height)
+        
+        balls.append(newBall)
+        
+        self.view.insertSubview(newBall, atIndex: 0)
+        
+        // Reduce timer between ball drops
+        NSTimer.scheduledTimerWithTimeInterval(BALL_INTERVAL - (Double(score) * BALL_TIME_REDUCE_RATIO), target: self, selector: Selector("createBall"), userInfo: nil, repeats: false)
     }
     
-    func createBall(anyLayer:ballImageView) {
+    // 1. Remove current ball from balls
+    // 2. Remove that ball from self.view
+    func removeBall() {
+        let currentBallIndex = find(balls, currentBall())
+
+        // The position of the ballIndex is certain to match the view index as that is the rule that createBall enforces.
+        // Therefore, because we have the currentBallIndex value, we know which subview to remove
+        let ballToRemove = balls.removeAtIndex(currentBallIndex!)
         
-        let colouredBalls = [blueImage, redImage]
-        let randomImage = Int(arc4random_uniform(UInt32(colouredBalls.count)))
+        ballToRemove.removeFromSuperview()
         
-        anyLayer.colour = randomImage
-        anyLayer.image = colouredBalls[randomImage]
-        anyLayer.alpha = 0
-        anyLayer.hidden = false
-        
-        timeOfSpawn = NSDate()
-        
-        UIView.animateWithDuration(1, animations: {
-            anyLayer.alpha = 1.0
-        })
-        
+        repositionBalls()
     }
     
-    func createNextBall(swipedLayer:ballImageView) {
-        
-        swipedLayer.alpha = 0
-        self.view.addSubview(swipedLayer)
-        swipedLayer.hidden = true
-        
+    // 1. On swipe, if more than one ball on the screen, drop each ball down into the next balls position
+    func repositionBalls() {
+        for ball in balls {
+            let ballOrigin = ball.frame.origin
+            let ballYPosition = ballOrigin.y  + (-1 *  BALL_VERTICAL_POSITION_OFFSET)
+            ball.frame.origin = CGPoint(x: ballOrigin.x, y: ballYPosition)
+        }
+    }
+    
+    func isMaxBalls() -> Bool{
+        return balls.count == MAX_BALLS
     }
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         
-        var layers = [layerOne, layerTwo]
+        // Setup the possible colours to choose from
+        colouredBallImages.append(topColourBallImage)
+        colouredBallImages.append(bottomColourBallImage)
+        
         setupGame()
         
     }
     
-    // Update Function
-    func update() {
-        
-        var difference = timeOfSpawn.timeIntervalSinceNow;
-        if (difference < -2) {
-            createBall(nextLayer())
-//            println("2 Seconds has passed");
-        }
-    
-    }
-    
     func setupGame () {
-        
-        // Timer
-        var timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("update"), userInfo: nil, repeats: true)
         
         // MARK: Swipe Gestures
         
@@ -112,6 +148,8 @@ class ViewController: UIViewController {
         swipeDown.direction = UISwipeGestureRecognizerDirection.Down
         self.view.addGestureRecognizer(swipeDown)
         
+        createBall()
+        
     }
     
     // Update Score
@@ -119,55 +157,65 @@ class ViewController: UIViewController {
         scoreCounter.text = "\(score)"
     }
     
-    // Swipe Functions
+    
+    // Swiping algorithm
+    
+    // 1. Get the ball image of the top layer
+    // 2. On swipe, check if ball colour matches the swipe direction
+    // 3. If correct, remove ball, else game over
+    
     func upSwiped() {
-        var curLayer = currentLayer()
-        if curLayer.colour == red {
-            score++
-            createNextBall(curLayer)
-            println("Correct Red")
-        } else {
-            println("Game Over")
-            let alert = UIAlertController(title: "Game Over",
-                message: "You scored \(score) points",
-                preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "Play Again", style: UIAlertActionStyle.Default, handler: {
-                action in self.restartedGame()
-            }))
-            
-            alert.addAction(UIAlertAction(title: "Home", style: UIAlertActionStyle.Default, handler: {
-                action in self.performSegueWithIdentifier("backToHome", sender: self)
-            }))
-            
-            presentViewController(alert, animated: true, completion:nil)
+//       if isGameOver {
+//            return
+//        }
+        
+        if currentBall().image == topColourBallImage {
+            correctSwipe()
+        }
+        else {
+            gameOver()
         }
     }
     
     func downSwiped() {
-        var curLayer = currentLayer()
-        if curLayer.colour == blue {
-            score++
-            createNextBall(curLayer)
-            println("Correct Blue")
-        } else {
-            println("Game Over")
-            let alert = UIAlertController(title: "Game Over",
-                message: "You scored \(score) points",
-                preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "Play Again", style: UIAlertActionStyle.Default, handler: {
-                action in self.restartedGame()
-            }))
-            
-            alert.addAction(UIAlertAction(title: "Home", style: UIAlertActionStyle.Default, handler: {
-                action in self.performSegueWithIdentifier("backToHome", sender: self)
-            }))
-            
-            presentViewController(alert, animated: true, completion:nil)
+//        if isGameOver {
+//            return
+//        }
+        
+        if currentBall().image == bottomColourBallImage {
+            correctSwipe()
         }
+        else {
+            gameOver()
+        }
+    }
+    
+    func correctSwipe() {
+        score += 1
+        removeBall()
+    }
+    
+    func gameOver() {
+        isGameOver = true
+        println("Game Over")
+        
+        let alert = UIAlertController(title: "Game Over",
+            message: "You scored \(score) points",
+            preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "Play Again", style: UIAlertActionStyle.Default, handler: {
+            action in self.restartedGame()
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Home", style: UIAlertActionStyle.Default, handler: {
+            action in self.performSegueWithIdentifier("backToHome", sender: self)
+        }))
+        
+        presentViewController(alert, animated: true, completion:nil)
     }
     
     func restartedGame() {
         score = 0
+        setupGame()
     }
     
     override func didReceiveMemoryWarning() {

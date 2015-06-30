@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		CE8591E31B3C06500041D437 /* ballImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8591E21B3C06500041D437 /* ballImageView.swift */; };
-		CEA64BBB1B415AF9004FB216 /* QueueController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA64BBA1B415AF9004FB216 /* QueueController.swift */; };
-		CEA64BBD1B415B03004FB216 /* NodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA64BBC1B415B03004FB216 /* NodeController.swift */; };
 		CEA64BC11B416C0E004FB216 /* HowToViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA64BC01B416C0E004FB216 /* HowToViewController.swift */; };
 		CED2130C1B36C54E00B282C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED2130B1B36C54E00B282C8 /* AppDelegate.swift */; };
 		CED2130E1B36C54E00B282C8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED2130D1B36C54E00B282C8 /* ViewController.swift */; };
@@ -32,8 +30,6 @@
 
 /* Begin PBXFileReference section */
 		CE8591E21B3C06500041D437 /* ballImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ballImageView.swift; sourceTree = "<group>"; };
-		CEA64BBA1B415AF9004FB216 /* QueueController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueueController.swift; sourceTree = "<group>"; };
-		CEA64BBC1B415B03004FB216 /* NodeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NodeController.swift; sourceTree = "<group>"; };
 		CEA64BC01B416C0E004FB216 /* HowToViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HowToViewController.swift; sourceTree = "<group>"; };
 		CED213061B36C54E00B282C8 /* Splat Simple.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Splat Simple.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CED2130A1B36C54E00B282C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -91,8 +87,6 @@
 				CEE8DF051B3970E900FA3D71 /* HomeViewController.swift */,
 				CEA64BC01B416C0E004FB216 /* HowToViewController.swift */,
 				CED2130D1B36C54E00B282C8 /* ViewController.swift */,
-				CEA64BBA1B415AF9004FB216 /* QueueController.swift */,
-				CEA64BBC1B415B03004FB216 /* NodeController.swift */,
 				CE8591E21B3C06500041D437 /* ballImageView.swift */,
 				CED2130F1B36C54E00B282C8 /* Main.storyboard */,
 				CED213121B36C54E00B282C8 /* Images.xcassets */,
@@ -228,12 +222,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				CED2130E1B36C54E00B282C8 /* ViewController.swift in Sources */,
-				CEA64BBB1B415AF9004FB216 /* QueueController.swift in Sources */,
 				CED2130C1B36C54E00B282C8 /* AppDelegate.swift in Sources */,
 				CEE8DF061B3970E900FA3D71 /* HomeViewController.swift in Sources */,
 				CE8591E31B3C06500041D437 /* ballImageView.swift in Sources */,
 				CEA64BC11B416C0E004FB216 /* HowToViewController.swift in Sources */,
-				CEA64BBD1B415B03004FB216 /* NodeController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
