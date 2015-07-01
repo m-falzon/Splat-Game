@@ -20,7 +20,7 @@ let MAX_BALLS = 3
 
 let BALL_VERTICAL_POSITION_OFFSET:CGFloat = -15
 
-let BALL_TIME_REDUCE_RATIO = 0.1
+let BALL_TIME_REDUCE_RATIO = 0.05
 
 class ViewController: UIViewController {
     
@@ -29,7 +29,7 @@ class ViewController: UIViewController {
     let topColourBallImage:UIImage = UIImage(named:"red")!
     let bottomColourBallImage:UIImage = UIImage(named:"blue")!
     
-    var isGameOver = true
+    var isGameOver = false
     
     var colouredBallImages:[UIImage] = []
     
@@ -42,6 +42,8 @@ class ViewController: UIViewController {
             updateScore()
         }
     }
+    
+    var ballTimer : NSTimer = NSTimer()
     
     var screenDimensions:(width:CGFloat, height:CGFloat) {
         get {
@@ -62,6 +64,21 @@ class ViewController: UIViewController {
     // 2. Get a new ball instance based on available colours
     // 3. Add to list of balls currently in play
     // 4. Set timer for when new ball should be created
+    
+    func ballDropTimer() {
+        // Reduce timer between ball drops
+        if score < 20 {
+            var ballTimer = NSTimer.scheduledTimerWithTimeInterval(BALL_INTERVAL - (Double(score) * BALL_TIME_REDUCE_RATIO), target: self, selector: Selector("createBall"), userInfo: nil, repeats: false)
+        } else if score < 30 {
+            ballTimer = NSTimer.scheduledTimerWithTimeInterval(BALL_INTERVAL - (Double(score) * 0.040), target: self, selector: Selector("createBall"), userInfo: nil, repeats: false)
+        } else if score < 40 {
+            ballTimer = NSTimer.scheduledTimerWithTimeInterval(BALL_INTERVAL - (Double(score) * 0.035), target: self, selector: Selector("createBall"), userInfo: nil, repeats: false)
+        } else if score < 999 {
+            ballTimer = NSTimer.scheduledTimerWithTimeInterval(0.50, target: self, selector: Selector("createBall"), userInfo: nil, repeats: false)
+        }
+    }
+    
+    
     func createBall() {
         
         // If we've reached the max amount of balls, it's game over
@@ -91,8 +108,13 @@ class ViewController: UIViewController {
         
         self.view.insertSubview(newBall, atIndex: 0)
         
-        // Reduce timer between ball drops
-        NSTimer.scheduledTimerWithTimeInterval(BALL_INTERVAL - (Double(score) * BALL_TIME_REDUCE_RATIO), target: self, selector: Selector("createBall"), userInfo: nil, repeats: false)
+        ballDropTimer()
+    }
+    
+    func stopBallCreate() {
+        
+        ballTimer.invalidate()
+        
     }
     
     // 1. Remove current ball from balls
@@ -165,9 +187,9 @@ class ViewController: UIViewController {
     // 3. If correct, remove ball, else game over
     
     func upSwiped() {
-//       if isGameOver {
-//            return
-//        }
+       if isGameOver {
+            return
+        }
         
         if currentBall().image == topColourBallImage {
             correctSwipe()
@@ -178,9 +200,9 @@ class ViewController: UIViewController {
     }
     
     func downSwiped() {
-//        if isGameOver {
-//            return
-//        }
+        if isGameOver {
+            return
+        }
         
         if currentBall().image == bottomColourBallImage {
             correctSwipe()
@@ -203,7 +225,7 @@ class ViewController: UIViewController {
             message: "You scored \(score) points",
             preferredStyle: UIAlertControllerStyle.Alert)
         alert.addAction(UIAlertAction(title: "Play Again", style: UIAlertActionStyle.Default, handler: {
-            action in self.restartedGame()
+            action in self.restartGame()
         }))
         
         alert.addAction(UIAlertAction(title: "Home", style: UIAlertActionStyle.Default, handler: {
@@ -213,9 +235,29 @@ class ViewController: UIViewController {
         presentViewController(alert, animated: true, completion:nil)
     }
     
-    func restartedGame() {
+    // 1. Clear score
+    // 2. Stop spawning balls (nstimer)
+    // 3. Clear current balls
+    
+    func restartGame() {
+        
+        stopBallCreate()
         score = 0
-        setupGame()
+
+        // 1. Figure out how many balls are on the screen
+        // 2. Remove the balls on the screen
+        
+        // The position of the ballIndex is certain to match the view index as that is the rule that createBall enforces.
+        // Therefore, because we have the currentBallIndex value, we know which subview to remove
+        balls.removeAll()
+        
+        let countBalls = balls.count
+//        let removeBalls = balls.removeAtIndex(countBalls)
+//        removeBalls.removeFromSuperview()
+        
+        println(countBalls)
+        
+//        setupGame()
     }
     
     override func didReceiveMemoryWarning() {
